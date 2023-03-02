@@ -5,12 +5,13 @@ Repositório para a disciplina Estrutura de Dados 2 do curso Análise e Desenvol
 1. [Ementa]
 2. [Objetivo Geral]
 3. [Objetivo Específico]
-4. [Cronograma]
-5. [Exercicios]
-6. [Trabalhos]
-7. [Bibliografia]
-8. [Extras]
-9. [Contributing]
+4. [Conteúdo Programático]
+5. [Cronograma]
+6. [Exercicios]
+7. [Trabalhos]
+8. [Bibliografia]
+9. [Extras]
+10. [Contributing]
 
 ## Ementa
 ----
@@ -46,6 +47,33 @@ Compreender e utilizar técnicas de encadeamento. Aplicar conceitos de Árvores 
 * Conhecer os conceitos de árvore;
 * Compreender os conceitos de Grafos;
 * Utilizar os conhecimentos em agoritmos de ordenação, busca e otimização
+
+## Conteúdo Programático
+----
+
+<br/>
+<div align="right">
+    <b><a href="#indice">↥ Voltar para o indice</a></b>
+</div>
+<br/>
+
+* Revisão sobre estruturas de dados.
+* Árvores
+* Definição árvores;
+* Árvores binárias;
+* Árvores binárias de busca;
+* Percurso;
+* Busca,
+* inserção e retirada de nós em uma árvores;
+* Árvores Balanceadas;
+* Árvores B.
+* Definição de Grafos;
+* Conceitos e terminologia de grafos;
+* Percurso;
+* Representação;
+* Grafos Dirigidos;
+* Grafos Ponderados;
+* Caminhos máximos e mínimos.
 
 ## Cronograma
 ----
@@ -128,6 +156,7 @@ Sinta-se livre para sugerir melhorias, materiais e outras contribuições via Is
 [Ementa]: #ementa
 [Objetivo Geral]: #objetivo-geral
 [Objetivo Específico]: #objetivo-específico
+[Conteúdo Programático]: #conteúdo-programático
 [Cronograma]: #cronograma
 [Exercicios]: #exercicios
 [Trabalhos]: #trabalhos
