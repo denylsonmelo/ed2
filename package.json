@@ -1,0 +1,16 @@
+{
+	"name": "ed2",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "Denylson Melo <143313+denylsonmelo@users.noreply.github.com>",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc -p .",
+		"watch": "npm run build -- -w",
+		"exec": "node build/index.js"
+	},
+	"devDependencies": {
+		"ts-node": "^10.9.1",
+		"typescript": "^4.9.5"
+	}
+}
