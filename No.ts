@@ -3,8 +3,13 @@ export class No {
 	public valor;
 	public proximo: No;
 
-	constructor(valor) {
+	constructor(valor, proximo?: No) {
 		this.valor = valor;
-		this.proximo = null;
+
+		if (proximo) {
+			this.proximo = proximo;
+		} else {
+			this.proximo = null;
+		}
 	}
 }

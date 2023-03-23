@@ -11,11 +11,15 @@ lista.adicionarHead("aluno06");
 lista.adicionarHead("aluno07");
 lista.adicionarHead("aluno08");
 lista.adicionarHead("aluno09");
+lista.adicionarHead("aluno10");
 
-console.log("lista vazia:", lista.estarVazia());
-console.log("tamanho:", lista.tamanho());
-// console.log("cabeca:", lista.head);
-// console.log("proximo elemento:", lista.head.proximo);
+lista.info();
+//lista.removerHead();
+//lista.removerHead();
+lista.valores();
 
-lista.removerHead();
-lista.imprimir();
+lista.adicionarEm("aluno novato", 4);
+//lista.info();
+
+lista.valores();
+//lista.valorEm(4);
