@@ -2,7 +2,7 @@ import { No } from "./No";
 
 export class Lista {
 	private totalNos: number = 0;
-	public head: No = null;
+	private head: No = null;
 
 	constructor(valor?) {
 		console.log("> iniciando lista nova");
