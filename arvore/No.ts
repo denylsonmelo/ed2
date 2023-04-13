@@ -1,15 +1,21 @@
 export class No {
-	private valor;
-	private esquerdo: No;
-	private direito: No;
+	private valorInterno;
+	private noEsquerdo: No = null;
+	private noDireito: No = null;
 
-	constructor(valor, proximo?: No) {
-		this.valor = valor;
+	constructor(valor) {
+		console.log(`> criando um no { ${valor} }`);
 
-		// if (proximo) {
-		// 	this.proximo = proximo;
-		// } else {
-		// 	this.proximo = null;
-		// }
+		this.valorInterno = valor;
+	}
+
+	public get valor() {
+		return this.valorInterno;
+	}
+	public get esquerda() {
+		return this.noEsquerdo;
+	}
+	public get direita() {
+		return this.noDireito;
 	}
 }

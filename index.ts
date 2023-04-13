@@ -1,19 +1,14 @@
 import { Arvore } from "./arvore/Arvore";
-import { No } from "./arvore/No";
 
 const arvore = new Arvore();
-console.log(arvore.getRaiz());
-console.log(arvore.raiz);
-// console.log(arvore.root);
-
-let no = new No("aluno01");
-// arvore.root = no;
-arvore.raiz = no;
-//arvore.setRaiz(no);
-
+console.log(arvore.info);
 console.log(">>>>>>>>");
-console.log(arvore.getRaiz());
-console.log(arvore.raiz);
+
+arvore.adicionar(10);
+arvore.adicionar(5);
+arvore.adicionar(20);
+
+console.log(arvore.info);
 
 //console.log("saindo tes");
 
