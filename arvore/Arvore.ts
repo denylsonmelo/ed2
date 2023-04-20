@@ -14,45 +14,31 @@ export class Arvore {
 	}
 
 	public adicionar(valor) {
-		let novoNo: No = new No(valor);
+		this.root = this.adicionarNo(this.root, valor);
 
-		// modificar
-		if (!this.root) {
-			console.log(`raiz nula ${valor}`);
-			this.root = novoNo;
-		}
-
-		if (valor > this.root.valor) {
-			console.log(`pela direita ${valor}`);
-
-			this.adicionarNo(this.root.direita, valor);
-		} else if (valor < this.root.valor) {
-			console.log(`pela esquerda ${valor}`);
-
-			this.adicionarNo(this.root.esquerda, valor);
-		}
-
-		// corrigir
-		this.totalNos++;
-		this.height = 1;
+		//let novoNo: No = new No(valor);
+		//this.root = novoNo;
 	}
-	private adicionarNo(no, valor) {
-		console.log(`adicionarno ${no}`);
+
+	private adicionarNo(no: No, valor): No {
+		console.log(`adicionar -> no ${no}`);
 
 		if (!no) {
-			console.log(`no nula ${valor}`);
+			console.log(`no nula`);
 			let novoNo: No = new No(valor);
 			no = novoNo;
+			this.totalNos++;
+			return no;
 		}
 
 		if (valor > no.valor) {
 			console.log(`pela direita ${valor}`);
 
-			this.adicionarNo(no.direita, valor);
+			return this.adicionarNo(no.direita, valor);
 		} else if (valor < no.valor) {
 			console.log(`pela esquerda ${valor}`);
 
-			this.adicionarNo(no.esquerda, valor);
+			return this.adicionarNo(no.esquerda, valor);
 		}
 	}
 
@@ -60,22 +46,27 @@ export class Arvore {
 		return this.height;
 	}
 
-	public get tamanho(): number {
+	public get quantidadeElementos(): number {
 		return this.totalNos;
 	}
 
 	public get estarVazia(): boolean {
-		return this.tamanho == 0;
+		return this.quantidadeElementos == 0;
 	}
 
 	public get info() {
 		let info = "";
 
 		info += `> > altura: ${this.altura} \n`;
-		info += `> > tamanho: ${this.tamanho} \n`;
+		info += `> > quantidadeElementos: ${this.quantidadeElementos} \n`;
 		info += `> > estarVazia: ${this.estarVazia} \n`;
 
 		info += `> > raiz: ${this.raiz} \n`;
+		if (this.raiz) {
+			info += `> > > valor: ${this.raiz.valor} \n`;
+			info += `> > > esquerda: ${this.raiz.esquerda} \n`;
+			info += `> > > direita: ${this.raiz.direita} \n`;
+		}
 
 		return info;
 	}

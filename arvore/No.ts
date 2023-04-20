@@ -1,7 +1,7 @@
 export class No {
 	private valorInterno;
-	private noEsquerdo: No = null;
-	private noDireito: No = null;
+	private caminhoEsquerdo: No = null;
+	private caminhoDireito: No = null;
 
 	constructor(valor) {
 		console.log(`> criando um no { ${valor} }`);
@@ -13,9 +13,9 @@ export class No {
 		return this.valorInterno;
 	}
 	public get esquerda() {
-		return this.noEsquerdo;
+		return this.caminhoEsquerdo;
 	}
 	public get direita() {
-		return this.noDireito;
+		return this.caminhoDireito;
 	}
 }

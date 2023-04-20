@@ -6,7 +6,7 @@ console.log(">>>>>>>>");
 
 arvore.adicionar(10);
 arvore.adicionar(5);
-arvore.adicionar(20);
+//arvore.adicionar(20);
 
 console.log(arvore.info);
 
