@@ -13,11 +13,31 @@ export class Arvore {
 		}
 	}
 
+	public listar() {
+		// if()
+		this.posOrdem(this.root);
+	}
+
+	private preOrdem(no: No) {
+		if (no) console.log(no.valor);
+		if (no.esquerda) this.preOrdem(no.esquerda);
+		if (no.direita) this.preOrdem(no.direita);
+	}
+
+	private emOrdem(no: No) {
+		if (no.esquerda) this.emOrdem(no.esquerda);
+		if (no) console.log(no.valor);
+		if (no.direita) this.emOrdem(no.direita);
+	}
+
+	private posOrdem(no: No) {
+		if (no.esquerda) this.posOrdem(no.esquerda);
+		if (no.direita) this.posOrdem(no.direita);
+		if (no) console.log(no.valor);
+	}
+
 	public adicionar(valor) {
 		this.root = this.adicionarNo(this.root, valor);
-
-		//let novoNo: No = new No(valor);
-		//this.root = novoNo;
 	}
 
 	private adicionarNo(no: No, valor): No {
@@ -34,11 +54,13 @@ export class Arvore {
 		if (valor > no.valor) {
 			console.log(`pela direita ${valor}`);
 
-			return this.adicionarNo(no.direita, valor);
+			no.direita = this.adicionarNo(no.direita, valor);
+			return no;
 		} else if (valor < no.valor) {
 			console.log(`pela esquerda ${valor}`);
 
-			return this.adicionarNo(no.esquerda, valor);
+			no.esquerda = this.adicionarNo(no.esquerda, valor);
+			return no;
 		}
 	}
 

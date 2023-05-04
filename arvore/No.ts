@@ -18,4 +18,10 @@ export class No {
 	public get direita() {
 		return this.caminhoDireito;
 	}
+	public set esquerda(no: No) {
+		this.caminhoEsquerdo = no;
+	}
+	public set direita(no: No) {
+		this.caminhoDireito = no;
+	}
 }

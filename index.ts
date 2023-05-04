@@ -6,9 +6,17 @@ console.log(">>>>>>>>");
 
 arvore.adicionar(10);
 arvore.adicionar(5);
-//arvore.adicionar(20);
+arvore.adicionar(20);
+arvore.adicionar(7);
+arvore.adicionar(4);
+arvore.adicionar(30);
+arvore.adicionar(26);
+arvore.adicionar(40);
+arvore.adicionar(42);
+arvore.adicionar(70);
+arvore.adicionar(2);
 
-console.log(arvore.info);
+console.log(arvore.listar());
 
 //console.log("saindo tes");
 
