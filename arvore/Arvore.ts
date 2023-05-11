@@ -13,6 +13,28 @@ export class Arvore {
 		}
 	}
 
+	public pesquisar(valor: number) {
+		if (this.estarVazia) return false;
+		return this.pesquisaInterna(this.root, valor);
+	}
+
+	private pesquisaInterna(no: No, valor: number) {
+		if (no?.valor === valor) {
+			console.log("> achou elemento");
+			return true;
+		}
+
+		if (valor < no?.valor) {
+			console.log("> buscando pela esquerda");
+			return this.pesquisaInterna(no.esquerda, valor);
+		} else if (valor > no?.valor) {
+			console.log("> buscando pela direita");
+			return this.pesquisaInterna(no.direita, valor);
+		}
+
+		return false;
+	}
+
 	public listar() {
 		// if()
 		this.posOrdem(this.root);

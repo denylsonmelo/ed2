@@ -15,8 +15,17 @@ arvore.adicionar(40);
 arvore.adicionar(42);
 arvore.adicionar(70);
 arvore.adicionar(2);
+arvore.adicionar(-30);
 
-console.log(arvore.listar());
+//arvore.listar();
+
+//console.log(`busca (10): ${arvore.pesquisar(10)}`);
+
+//console.log(`busca (56): ${arvore.pesquisar(56)}`);
+//console.log(`busca (-20): ${arvore.pesquisar(-20)}`);
+
+//console.log(`busca (7): ${arvore.pesquisar(7)}`);
+console.log(`busca (42): ${arvore.pesquisar(42)}`);
 
 //console.log("saindo tes");
 
