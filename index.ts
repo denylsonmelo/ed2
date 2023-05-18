@@ -1,4 +1,4 @@
-import { Arvore } from "./arvore/Arvore";
+import { Arvore } from "./src/arvore/Arvore.js";
 
 const arvore = new Arvore();
 console.log(arvore.info);
@@ -17,7 +17,7 @@ arvore.adicionar(70);
 arvore.adicionar(2);
 arvore.adicionar(-30);
 
-//arvore.listar();
+arvore.listar();
 
 //console.log(`busca (10): ${arvore.pesquisar(10)}`);
 
@@ -25,7 +25,8 @@ arvore.adicionar(-30);
 //console.log(`busca (-20): ${arvore.pesquisar(-20)}`);
 
 //console.log(`busca (7): ${arvore.pesquisar(7)}`);
-console.log(`busca (42): ${arvore.pesquisar(42)}`);
+//console.log(`busca (42): ${arvore.pesquisar(42)}`);
+//console.log(`busca (43): ${arvore.pesquisar(43)}`);
 
 //console.log("saindo tes");
 

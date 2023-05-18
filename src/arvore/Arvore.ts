@@ -1,3 +1,4 @@
+import { Fila } from "../fila/Fila";
 import { No } from "./No";
 
 export class Arvore {
@@ -13,23 +14,23 @@ export class Arvore {
 		}
 	}
 
-	public pesquisar(valor: number) {
+	public pesquisar(valorASerPesquisado: number) {
 		if (this.estarVazia) return false;
-		return this.pesquisaInterna(this.root, valor);
+		return this.pesquisaInterna(this.root, valorASerPesquisado);
 	}
 
-	private pesquisaInterna(no: No, valor: number) {
-		if (no?.valor === valor) {
+	private pesquisaInterna(no: No, valorASerPesquisado: number) {
+		if (no?.valor === valorASerPesquisado) {
 			console.log("> achou elemento");
 			return true;
 		}
 
-		if (valor < no?.valor) {
+		if (valorASerPesquisado < no?.valor) {
 			console.log("> buscando pela esquerda");
-			return this.pesquisaInterna(no.esquerda, valor);
-		} else if (valor > no?.valor) {
+			return this.pesquisaInterna(no.esquerda, valorASerPesquisado);
+		} else if (valorASerPesquisado > no?.valor) {
 			console.log("> buscando pela direita");
-			return this.pesquisaInterna(no.direita, valor);
+			return this.pesquisaInterna(no.direita, valorASerPesquisado);
 		}
 
 		return false;
@@ -37,7 +38,22 @@ export class Arvore {
 
 	public listar() {
 		// if()
-		this.posOrdem(this.root);
+		this.bfs(this.root);
+	}
+
+	private bfs(no: No) {
+		let filaImpressao: Fila = new Fila();
+
+		filaImpressao.adicionar(no);
+
+		for (; filaImpressao.tamanho > 0; ) {
+			let noAtual = filaImpressao.remover();
+
+			console.log(noAtual?.valor);
+
+			if (noAtual?.esquerda) filaImpressao.adicionar(noAtual.esquerda);
+			if (noAtual?.direita) filaImpressao.adicionar(noAtual.direita);
+		}
 	}
 
 	private preOrdem(no: No) {
