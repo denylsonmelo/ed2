@@ -2,9 +2,9 @@ import { Fila } from "../fila/Fila";
 import { No } from "./No";
 
 export class Arvore {
-	private root: No = null;
-	private height: number = 0;
-	private totalNos: number = 0;
+	private _root: No = null;
+	private _height: number = 0;
+	private _totalNos: number = 0;
 
 	constructor(valor?) {
 		console.log("> iniciando arvore nova");
@@ -14,9 +14,36 @@ export class Arvore {
 		}
 	}
 
+	public remover(valor) {
+		this._root = this.removerInterno(this._root, null, valor);
+	}
+
+	private removerInterno(no: No, noPai: No, valorPesquisado) {
+		if (!no) return null;
+
+		if (no.valor > valorPesquisado)
+			return this.removerInterno(no.esquerda, no, valorPesquisado);
+		if (no.valor < valorPesquisado)
+			return this.removerInterno(no.direita, no, valorPesquisado);
+
+		if (no.valor == valorPesquisado) {
+			// remover  no -30  noPai 2
+			if (!no.esquerda && !no.direita) {
+				//noPai
+				if (noPai.valor > no.valor) noPai.esquerda = null;
+				if (noPai.valor < no.valor) noPai.direita = null;
+
+				no.apagar();
+				return no;
+			}
+
+			return null;
+		}
+	}
+
 	public pesquisar(valorASerPesquisado: number) {
 		if (this.estarVazia) return false;
-		return this.pesquisaInterna(this.root, valorASerPesquisado);
+		return this.pesquisaInterna(this._root, valorASerPesquisado);
 	}
 
 	private pesquisaInterna(no: No, valorASerPesquisado: number) {
@@ -38,7 +65,7 @@ export class Arvore {
 
 	public listar() {
 		// if()
-		this.bfs(this.root);
+		this.bfs(this._root);
 	}
 
 	private bfs(no: No) {
@@ -75,39 +102,39 @@ export class Arvore {
 	}
 
 	public adicionar(valor) {
-		this.root = this.adicionarNo(this.root, valor);
+		this._root = this.adicionarInterno(this._root, valor);
 	}
 
-	private adicionarNo(no: No, valor): No {
+	private adicionarInterno(no: No, valor): No {
 		console.log(`adicionar -> no ${no}`);
 
 		if (!no) {
 			console.log(`no nula`);
 			let novoNo: No = new No(valor);
 			no = novoNo;
-			this.totalNos++;
+			this._totalNos++;
 			return no;
 		}
 
 		if (valor > no.valor) {
 			console.log(`pela direita ${valor}`);
 
-			no.direita = this.adicionarNo(no.direita, valor);
+			no.direita = this.adicionarInterno(no.direita, valor);
 			return no;
 		} else if (valor < no.valor) {
 			console.log(`pela esquerda ${valor}`);
 
-			no.esquerda = this.adicionarNo(no.esquerda, valor);
+			no.esquerda = this.adicionarInterno(no.esquerda, valor);
 			return no;
 		}
 	}
 
 	public get altura(): number {
-		return this.height;
+		return this._height;
 	}
 
 	public get quantidadeElementos(): number {
-		return this.totalNos;
+		return this._totalNos;
 	}
 
 	public get estarVazia(): boolean {
@@ -132,6 +159,6 @@ export class Arvore {
 	}
 
 	public get raiz() {
-		return this.root;
+		return this._root;
 	}
 }

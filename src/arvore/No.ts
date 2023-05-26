@@ -1,27 +1,33 @@
 export class No {
-	private valorInterno;
-	private caminhoEsquerdo: No = null;
-	private caminhoDireito: No = null;
+	private _valorInterno;
+	private _caminhoEsquerdo: No = null;
+	private _caminhoDireito: No = null;
 
 	constructor(valor) {
 		console.log(`> criando um no { ${valor} }`);
 
-		this.valorInterno = valor;
+		this._valorInterno = valor;
+	}
+
+	public apagar() {
+		this._valorInterno = null;
+		this._caminhoDireito = null;
+		this._caminhoEsquerdo = null;
 	}
 
 	public get valor() {
-		return this.valorInterno;
+		return this._valorInterno;
 	}
 	public get esquerda() {
-		return this.caminhoEsquerdo;
+		return this._caminhoEsquerdo;
 	}
 	public get direita() {
-		return this.caminhoDireito;
+		return this._caminhoDireito;
 	}
 	public set esquerda(no: No) {
-		this.caminhoEsquerdo = no;
+		this._caminhoEsquerdo = no;
 	}
 	public set direita(no: No) {
-		this.caminhoDireito = no;
+		this._caminhoDireito = no;
 	}
 }

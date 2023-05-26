@@ -19,6 +19,12 @@ arvore.adicionar(-30);
 
 arvore.listar();
 
+arvore.remover(-30);
+
+console.log(">>>> apos remover");
+
+arvore.listar();
+
 //console.log(`busca (10): ${arvore.pesquisar(10)}`);
 
 //console.log(`busca (56): ${arvore.pesquisar(56)}`);
